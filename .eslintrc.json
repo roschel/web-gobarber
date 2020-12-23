@@ -50,7 +50,8 @@
     "prettier/prettier": "error",
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading":"off",
-    "react/prop-types":"off"
+    "react/prop-types":"off",
+    "@typescript-eslint/no-empty-function": "off"
   },
   "settings": {
     "import/resolver": {
