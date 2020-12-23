@@ -21,7 +21,7 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
-  const { signIn } = useContext(AuthContext);
+  const { user, signIn } = useContext(AuthContext);
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -57,7 +57,7 @@ const SignIn: React.FC = () => {
       <Content>
         <img src={logoImg} alt="GoBarber" />
         <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu logon</h1>
+          <h1>Faça seu login</h1>
 
           <Input icon={FiMail} name="email" placeholder="E-mail" />
 
