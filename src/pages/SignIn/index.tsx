@@ -4,10 +4,11 @@ import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
 
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 import getValidationErrors from '../../utils/getValidationErros';
 
-import { Container, Content, Background } from './styles';
+import { Container, Content, Background, AnimationContainer } from './styles';
 
 import logoImg from '../../assets/logo.svg';
 import Button from '../../components/Button';
@@ -50,6 +51,8 @@ const SignIn: React.FC = () => {
           const errors = getValidationErrors(err);
 
           formRef.current?.setErrors(errors);
+
+          return;
         }
 
         addToast({
@@ -65,27 +68,30 @@ const SignIn: React.FC = () => {
   return (
     <Container>
       <Content>
-        <img src={logoImg} alt="GoBarber" />
-        <Form ref={formRef} onSubmit={handleSubmit}>
-          <h1>Faça seu login</h1>
+        <AnimationContainer>
+          <img src={logoImg} alt="GoBarber" />
+          <Form ref={formRef} onSubmit={handleSubmit}>
+            <h1>Faça seu login</h1>
 
-          <Input icon={FiMail} name="email" placeholder="E-mail" />
+            <Input icon={FiMail} name="email" placeholder="E-mail" />
 
-          <Input
-            icon={FiLock}
-            name="password"
-            type="password"
-            placeholder="Senha"
-          />
+            <Input
+              icon={FiLock}
+              name="password"
+              type="password"
+              placeholder="Senha"
+            />
 
-          <Button type="submit">Entrar</Button>
+            <Button type="submit">Entrar</Button>
 
-          <a href="forgot">Esqueci minha senha</a>
-        </Form>
-        <a href="login">
-          <FiLogIn />
-          Criar conta
-        </a>
+            <a href="forgot">Esqueci minha senha</a>
+          </Form>
+
+          <Link to="/signup">
+            <FiLogIn />
+            Criar conta
+          </Link>
+        </AnimationContainer>
       </Content>
       <Background />
     </Container>
